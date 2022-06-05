@@ -1,0 +1,199 @@
+<form [formGroup]="reservationForm" (ngSubmit)="toConfirmPage($event)">
+  <!-- Datepicker-->
+  <h2>Pick Date and Time</h2>
+  <div class="col-xs-12 col-12 col-sm-6 col-md-4 form-group mb-3">
+    <input type="text" 
+            class="form-control mb-3" 
+            placeholder="Datepicker"
+            bsDatepicker
+            [minDate]="minDate"
+            [maxDate]="maxDate"
+            formControlName="reservationDateTime" />
+    <div *ngIf="dateTime?.invalid && (dateTime?.dirty || dateTime?.touched)" class="alert alert-danger">
+      <div *ngIf="dateTime?.errors?.['required']">
+        Date is required!
+      </div>
+    </div>
+  </div>
+  
+  <!-- Time pick custom -->
+  <div class="col-xs-12 col-12 col-sm-6 col-md-4 form-group mb-3">
+    <div *ngIf="reservationForm?.value?.reservationDateTime" class="row row-cols-3">
+      <div class="col" *ngFor="let item of timeSlotsArray$ | async">
+        <input [checked]="item.value === resTime && item.reserved != true" 
+                [disabled]="item.reserved === true"
+                type="radio" 
+                (change)="updateDateWithTime(item.value)" 
+                class="btn-check" 
+                name="time" 
+                [id]="item.key" 
+                autocomplete="off">
+        <label class="btn btn-outline-success" [for]="item.key">{{item.value}} pm</label>
+        <p></p>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="time?.invalid && (time?.dirty || time?.touched)" class="alert alert-danger">
+    <div *ngIf="time?.errors?.['required']">
+      Please select the hour!
+    </div>
+  </div>
+  <!-- User Details-->
+  <h2>User Details</h2>
+  <div formGroupName="userDetails">
+    <!-- Name -->
+    <div class="col-xs-12 col-12 col-sm-6 col-md-4 form-group mb-3">
+      <input type="text" placeholder="Name "id="name" formControlName="name" class="form-control" required>
+      
+      <div *ngIf="name?.invalid && (name?.dirty || name?.touched)" class="alert alert-danger">
+        <div *ngIf="name?.errors?.['required']">
+          Name is required.
+        </div>
+        <div *ngIf="name?.errors?.['minlength']">
+          Name must be at least 3 characters long.
+        </div>
+        <div *ngIf="name?.errors?.['pattern']">
+          Only letters
+        </div>
+      </div>
+    </div>
+    <!-- Email address -->
+    <div class="col-xs-12 col-12 col-sm-6 col-md-4 form-group mb-3">
+      <input type="email" 
+              class="form-control mb-3" 
+              placeholder="Email Address"
+              formControlName="emailAddress" />
+      <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="alert alert-danger">
+        <div *ngIf="email?.errors?.['required']">
+          Email is required!
+        </div>
+        <div *ngIf="email?.errors">
+          Must be valid email address!
+        </div>
+      </div>
+    </div>
+    <!-- Phone number -->
+    <div class="col-xs-12 col-12 col-sm-6 col-md-4 form-group mb-3">
+      <input type="tel" 
+              class="form-control mb-3" 
+              placeholder="Phone Number"
+              formControlName="phoneNumber" />
+      <div *ngIf="phone?.invalid && (phone?.dirty || phone?.touched)" class="alert alert-danger">
+        <div *ngIf="phone?.errors?.['required']">
+          Phone is required!
+        </div>
+        <div *ngIf="phone?.errors?.['pattern']">
+          Phone number is not 10 digits!
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Party Details-->
+  <h2>Party Details</h2>
+  <div formGroupName="partyDetails">
+    <!-- Regions -->
+    <div class="col-xs-12 col-12 col-sm-6 col-md-4 form-group mb-3">
+      <label class="form-label">Restaurant Region</label>
+      <select class="form-control mb-3" 
+              formControlName="regionPreference">
+        <option value="- Select region -" disabled="disabled" >Select Region</option>
+        <option *ngFor="let region of regions" value={{region.value}}>{{ region.name }}</option>
+      </select>
+      <div *ngIf="region?.invalid && (region?.dirty || region?.touched)" class="alert alert-danger">
+        <div *ngIf="region?.errors?.['required']">
+          Filed is required!
+        </div>
+      </div>
+    </div>
+    <!-- Party size -->
+    <div class="col-xs-12 col-12 col-sm-6 col-md-4 form-group mb-3">
+      <label for="partySize" class="form-label">Number of Guests</label>
+      <input type="number" 
+              class="form-control mb-3" 
+              placeholder="Party Size"
+              formControlName="partySize" />
+      <div *ngIf="partySize?.invalid && (partySize?.dirty || partySize?.touched)" class="alert alert-danger">
+        <div *ngIf="partySize?.errors?.['required']">
+          Filed is required!
+        </div>
+        <div *ngIf="partySize?.errors?.['pattern']">
+          Only digits !
+        </div>
+        <div *ngIf="partySize?.errors?.['min']">
+          Please add the number of guests?
+        </div>
+        <div *ngIf="partySize?.errors?.['max']">
+          Maximum {{ guestPerTable(region?.value) }} seats per table in this region !
+        </div>
+      </div>
+    </div>
+    <!-- Children  -->
+    <div *ngIf="okForChildren(region?.value)" class="col-xs-12 col-12 col-sm-6 col-md-4 form-group mb-3">
+      <label class="form-label">Number of children in the party</label>
+      <input type="number" 
+              class="form-control mb-3" 
+              placeholder="Number of Children"
+              formControlName="numberOfChildren" />
+      <div *ngIf="children?.invalid && (children?.dirty || children?.touched)" class="alert alert-danger">
+        <div *ngIf="children?.errors?.['pattern']">
+          Only digits !
+        </div>
+        <div *ngIf="children?.errors?.['min']">
+          No less than 0 children please :) ?
+        </div>
+        <div *ngIf="children?.errors?.['max']">
+          Maximum {{ guestPerTable(region?.value) }} seats per table in this region !
+        </div>
+        
+      </div>
+    </div>
+    <!-- has Smokers -->
+    <div *ngIf="okForSmokers(region?.value)" class="col-xs-12 col-12 col-sm-6 col-md-4 form-group mb-3">
+      <div class="form-check" disabled>
+        <input class="form-check-input" 
+              type="checkbox" 
+              formControlName="hasSmokers" />
+        <label class="form-check-label">
+          Do you want to smoke ?
+        </label>
+      </div>
+    </div>
+    <!-- has Birthday -->
+    <div class="col-xs-12 col-12 col-sm-6 col-md-4 form-group mb-3">
+      <div class="form-check">
+        <input class="form-check-input" 
+              type="checkbox" 
+              formControlName="hasBirthday" />
+        <label class="form-check-label">
+          Is this a Birthday Party? 
+        </label>
+      </div>
+    </div>
+    <!-- Birthday person name -->
+    <div *ngIf="hasBirthday" class="col-xs-12 col-12 col-sm-6 col-md-4 form-group mb-3">
+      <input type="text" 
+              class="form-control mb-3" 
+              placeholder="Birthday Person's Name"
+              formControlName="birthdayPersonName" />
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Continue</button>
+</form>
+
+<!-- USED ONLY FOR DEBUGGING DURING DEV-->
+<!-- Not removed on pourpose -->
+<!-- So you can activate it and test the app faster :) -->
+<div *ngIf="false" class="col-xs-12 col-12 col-sm-6 col-md-4 form-group mb-3"> 
+  <p></p>
+  <p><strong>Form Value for debuging:</strong></p>
+    {{ reservationForm.value | json }}
+
+  <p></p>
+  <button type="button" (click)="populateFormDummyData()" class="btn btn-primary">Populate dummy data</button>
+  <p></p> 
+  <p>Form Status: {{ reservationForm.status }}</p> 
+  <p></p>
+  <button type="button" (click)="getHours()" class="btn btn-primary">Get Reservations from API</button>
+  <p></p>
+  <button type="button" (click)="checkForActiveReservation()" class="btn btn-primary">Check for Active reservation</button>
+</div>

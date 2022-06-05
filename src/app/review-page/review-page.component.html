@@ -1,0 +1,80 @@
+
+<!-- Not using *ngFor becasue I want to show the fields in a certen order-->
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Field</th>
+      <th scope="col">Data</th>
+    </tr>
+  </thead>
+  <tbody (click)="openModal(template)">
+    <tr>
+      <td>Reservation Date</td>
+      <td>{{data?.reservationDateTime | date:'MMMM dd, YYYY'}}</td>
+    </tr>
+    <tr>
+      <td>Reservation Time</td>
+      <td>{{data?.reservationTime}} pm</td>
+    </tr>
+    <tr>
+      <td>User Name</td>
+      <td>{{data?.userDetails?.name}}</td>
+    </tr>
+    <tr>
+      <td>User Email Address</td>
+      <td>{{data?.userDetails?.emailAddress}}</td>
+    </tr>
+    <tr>
+      <td>User Phone Number</td>
+      <td>{{data?.userDetails?.phoneNumber}}</td>
+    </tr>
+    <tr>
+      <td>Region Preference</td>
+      <td>{{data?.partyDetails?.regionPreference}}</td>
+    </tr>
+    <tr>
+      <td>Party Size</td>
+      <td>{{data?.partyDetails?.partySize}}</td>
+    </tr>
+    <tr>
+      <td>Number of Children</td>
+      <td>{{data?.partyDetails?.numberOfChildren}}</td>
+    </tr>
+    <tr>
+      <td>Has Smokers</td>
+      <td>
+        <span>{{data?.partyDetails?.hasSmokers ? 'Yes' : 'No' }}</span>
+      </td>
+    </tr>
+    <tr>
+      <td>Has Birthday</td>
+      <td><span>{{data?.partyDetails?.hasBirthday ? 'Yes' : 'No' }}</span></td>
+    </tr>
+    <tr>
+      <td>Birthday Person Name</td>
+      <td>{{data?.partyDetails?.birthdayPersonName}}</td>
+    </tr>
+  </tbody>
+</table>
+<div *ngIf="reservationConfirmed" class="alert alert-success" role="alert">
+  Congratulations! Reservation confirmed, you made it!
+</div>
+<div class="row">
+  <div class="col">
+    <button type="button" [disabled]="reservationConfirmed" (click)="openModal(template)" class="btn btn-primary">Go Back</button>
+  </div>
+  <div class="col">
+    <button type="button" [disabled]="reservationConfirmed" (click)="onConfirmReservation()" class="btn btn-primary">Confirm reservation</button>
+  </div>
+</div>
+
+
+
+<!-- I know the modal template should be in separete component for reusability, just put it here to go faster for the assignment-->
+<ng-template #template>
+  <div class="modal-body text-center">
+    <p>Do you want edit you reservation?</p>
+    <button type="button" class="btn btn-default" (click)="confirm()" >Yes</button>
+    <button type="button" class="btn btn-primary" (click)="decline()" >No</button>
+  </div>
+</ng-template>

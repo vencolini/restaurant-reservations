@@ -1,0 +1,14 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand">NYC Marea Restaurant</a>
+    <button (click)="toggleNavMenu()" [attr.aria-expanded]="!isCollapsed" class="navbar-toggler" type="button" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" [collapse]="isCollapsed" [isAnimated]="true">
+      <div class="navbar-nav">
+        <a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }" routerLink="/">Home</a>
+        <a class="nav-link" [routerLinkActive]="['active']" routerLink="/reservation">Make a Reservation</a>
+      </div>
+    </div>
+  </div>
+</nav>

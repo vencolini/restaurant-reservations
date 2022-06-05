@@ -1,0 +1,256 @@
+{
+  "reservations": [
+    {
+      "reservationDateTime": "2022-07-25T16:00:00.000Z",
+      "reservationTime": "6:00",
+      "userDetails": {
+        "name": "Alice for testing",
+        "emailAddress": "email@email.com",
+        "phoneNumber": 5556667778
+      },
+      "partyDetails": {
+        "regionPreference": "mainHall",
+        "partySize": 8,
+        "numberOfChildren": 2,
+        "hasSmokers": false,
+        "hasBirthday": true,
+        "birthdayPersonName": "Bob"
+      },
+      "id": "b5dc8d42-810c-44e3-801b-e7a2aaea9e57"
+    },
+    {
+      "reservationDateTime": "2022-07-25T20:00:00.000Z",
+      "reservationTime": "10:00",
+      "userDetails": {
+        "name": "Alice for testing",
+        "emailAddress": "email@email.com",
+        "phoneNumber": 5556667778
+      },
+      "partyDetails": {
+        "regionPreference": "mainHall",
+        "partySize": 8,
+        "numberOfChildren": 2,
+        "hasSmokers": false,
+        "hasBirthday": true,
+        "birthdayPersonName": "Bob"
+      },
+      "id": "c8ef58b7-1240-4a5e-bbb6-a5698160234c"
+    },
+    {
+      "reservationDateTime": "2022-07-25T19:00:00.000Z",
+      "reservationTime": "9:00",
+      "userDetails": {
+        "name": "Alice for testing",
+        "emailAddress": "email@email.com",
+        "phoneNumber": 5556667778
+      },
+      "partyDetails": {
+        "regionPreference": "mainHall",
+        "partySize": 8,
+        "numberOfChildren": 2,
+        "hasSmokers": false,
+        "hasBirthday": true,
+        "birthdayPersonName": "Bob"
+      },
+      "id": "473d6365-ee1c-441d-884d-5e80741e4f52"
+    },
+    {
+      "reservationDateTime": "2022-07-26T20:00:00.000Z",
+      "reservationTime": "10:00",
+      "userDetails": {
+        "name": "Alice for testing",
+        "emailAddress": "email@email.com",
+        "phoneNumber": 5556667778
+      },
+      "partyDetails": {
+        "regionPreference": "mainHall",
+        "partySize": 8,
+        "numberOfChildren": 2,
+        "hasSmokers": false,
+        "hasBirthday": true,
+        "birthdayPersonName": "Bob"
+      },
+      "id": "77939c5e-f9ab-4372-8dda-cd4a5ee456a3"
+    },
+    {
+      "reservationDateTime": "2022-07-24T18:00:00.000Z",
+      "reservationTime": "8:00",
+      "userDetails": {
+        "name": "Alice for testing",
+        "emailAddress": "email@email.com",
+        "phoneNumber": 5556667778
+      },
+      "partyDetails": {
+        "regionPreference": "mainHall",
+        "partySize": 8,
+        "numberOfChildren": 2,
+        "hasSmokers": false,
+        "hasBirthday": true,
+        "birthdayPersonName": "Bob"
+      },
+      "id": "ab045658-fbf5-40b0-8aef-0d8e7f79ee50"
+    },
+    {
+      "reservationDateTime": "2022-07-30T18:30:00.000Z",
+      "reservationTime": "8:30",
+      "userDetails": {
+        "name": "Alice for testing",
+        "emailAddress": "email@email.com",
+        "phoneNumber": 5556667778
+      },
+      "partyDetails": {
+        "regionPreference": "mainHall",
+        "partySize": 8,
+        "numberOfChildren": 2,
+        "hasSmokers": false,
+        "hasBirthday": true,
+        "birthdayPersonName": "Bob"
+      },
+      "id": "ca5f2a65-2cee-4214-9fb8-096c5779e70b"
+    },
+    {
+      "reservationDateTime": "2022-07-25T17:00:00.000Z",
+      "reservationTime": "7:00",
+      "userDetails": {
+        "name": "Alice for testing",
+        "emailAddress": "email@email.com",
+        "phoneNumber": 5556667778
+      },
+      "partyDetails": {
+        "regionPreference": "bar",
+        "partySize": 4,
+        "numberOfChildren": 0,
+        "hasSmokers": false,
+        "hasBirthday": true,
+        "birthdayPersonName": "Bob"
+      },
+      "id": "b70277ec-0506-409a-a897-15e493c1ed5f"
+    },
+    {
+      "reservationDateTime": "2022-07-29T22:00:00.000Z",
+      "reservationTime": "20:30",
+      "userDetails": {
+        "name": "Alice for testing",
+        "emailAddress": "email@email.com",
+        "phoneNumber": 5556667778
+      },
+      "partyDetails": {
+        "regionPreference": "mainHall",
+        "partySize": 8,
+        "numberOfChildren": 2,
+        "hasSmokers": false,
+        "hasBirthday": true,
+        "birthdayPersonName": "Bob"
+      },
+      "id": "efc41573-b7fb-4997-85bd-e3d7bcfe7715"
+    },
+    {
+      "reservationDateTime": "2022-07-24T16:00:00.000Z",
+      "reservationTime": "6:00",
+      "userDetails": {
+        "name": "Alice for testing",
+        "emailAddress": "email@email.com",
+        "phoneNumber": 5556667778
+      },
+      "partyDetails": {
+        "regionPreference": "mainHall",
+        "partySize": 8,
+        "numberOfChildren": 2,
+        "hasSmokers": false,
+        "hasBirthday": true,
+        "birthdayPersonName": "Bob"
+      },
+      "id": "d8e81e82-426d-49b7-853f-f2309f73d39b"
+    },
+    {
+      "reservationDateTime": "2022-07-29T18:00:00.000Z",
+      "reservationTime": "8:00",
+      "userDetails": {
+        "name": "Alice for testing",
+        "emailAddress": "email@email.com",
+        "phoneNumber": 5556667778
+      },
+      "partyDetails": {
+        "regionPreference": "mainHall",
+        "partySize": 8,
+        "numberOfChildren": 2,
+        "hasSmokers": false,
+        "hasBirthday": true,
+        "birthdayPersonName": "Bob"
+      },
+      "id": "b9d5086d-ebc1-4388-a1a5-b7a78115e497"
+    },
+    {
+      "reservationDateTime": "2022-07-25T18:00:00.000Z",
+      "reservationTime": "8:00",
+      "userDetails": {
+        "name": "Alice for testing",
+        "emailAddress": "email@email.com",
+        "phoneNumber": 5556667778
+      },
+      "partyDetails": {
+        "regionPreference": "mainHall",
+        "partySize": 8,
+        "numberOfChildren": 2,
+        "hasSmokers": false,
+        "hasBirthday": true,
+        "birthdayPersonName": "Bob"
+      },
+      "id": "9ed9f915-9690-4bf7-a8b9-d02bf6660c41"
+    },
+    {
+      "reservationDateTime": "2022-07-29T19:30:00.000Z",
+      "reservationTime": "9:30",
+      "userDetails": {
+        "name": "Alice for testing",
+        "emailAddress": "email@email.com",
+        "phoneNumber": 5556667778
+      },
+      "partyDetails": {
+        "regionPreference": "mainHall",
+        "partySize": 8,
+        "numberOfChildren": 2,
+        "hasSmokers": false,
+        "hasBirthday": true,
+        "birthdayPersonName": "Bob"
+      },
+      "id": "c25871b7-577a-49f2-b03e-a88c9817c046"
+    },
+    {
+      "reservationDateTime": "2022-07-30T17:30:00.000Z",
+      "reservationTime": "7:30",
+      "userDetails": {
+        "name": "Alice for testing",
+        "emailAddress": "email@email.com",
+        "phoneNumber": 5556667778
+      },
+      "partyDetails": {
+        "regionPreference": "mainHall",
+        "partySize": 8,
+        "numberOfChildren": 2,
+        "hasSmokers": false,
+        "hasBirthday": true,
+        "birthdayPersonName": "Bob"
+      },
+      "id": "aaa7197c-d8ff-4218-87d4-b7b0568e893e"
+    },
+    {
+      "reservationDateTime": "2022-07-30T19:30:00.000Z",
+      "reservationTime": "9:30",
+      "userDetails": {
+        "name": "Alice for testing",
+        "emailAddress": "email@email.com",
+        "phoneNumber": 5556667778
+      },
+      "partyDetails": {
+        "regionPreference": "mainHall",
+        "partySize": 8,
+        "numberOfChildren": 2,
+        "hasSmokers": false,
+        "hasBirthday": true,
+        "birthdayPersonName": "Bob"
+      },
+      "id": "48909460-83fa-40bf-b4c2-e3fbfdb8883f"
+    }
+  ]
+}
