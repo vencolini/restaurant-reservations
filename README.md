@@ -4,7 +4,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 To run the project in Docker container follow the instructions
 
-## Prerequisites
+## Prerequisits
+
 1. Docker installed on your machine. You can download from [HERE](https://www.docker.com/products/docker-desktop/ "HERE")
 
 ## Installation
