@@ -29,8 +29,6 @@ export class ReservationComponent implements OnInit, OnDestroy {
   activeReservation: any;
   // reservationTime used to set the time buttons
   resTime: string = '';
-  // used to disable unavable time slot in template
-  timeSlotTaken: boolean = false;
   // to control time selection in tempalte
   timeSlotsArray = [
     { key: "slot1", value: "6:00", reserved: false },
@@ -43,6 +41,7 @@ export class ReservationComponent implements OnInit, OnDestroy {
     { key: "slot8", value: "9:30", reserved: false },
     { key: "slot9", value: "10:00", reserved: false }
   ];
+  
   timeSlotsArray$ = of(this.timeSlotsArray);
   
   regions = [
@@ -72,8 +71,11 @@ export class ReservationComponent implements OnInit, OnDestroy {
       })
   
     this.reservationForm.valueChanges.subscribe((dateTime) => {
+      // check for unavailable hours on form changes
       this.getHours();
     })
+    // check for unavailable hours on init
+    this.getHours();
   }
   
 
@@ -235,16 +237,21 @@ export class ReservationComponent implements OnInit, OnDestroy {
   }
   
   getHours():void {
+    // pass the reserved date and receive an array with all reserved hours for the date
     this.subs.add = this.reservations.getReserverdHours(this.reservationForm.value.reservationDateTime)
       .subscribe(reservedHours => {
-        this.timeSlotsArray.forEach(slot => {
-          if (reservedHours.includes(slot.value)) {
-            slot.reserved = true;
-          } else {
-            slot.reserved = false;
-          }
-        });
+        this.disableReservedHours(reservedHours)
       })
+  }
+  
+  disableReservedHours(reservedHours:any): void {
+    this.timeSlotsArray.forEach(slot => {
+      if (reservedHours.includes(slot.value)) {
+        slot.reserved = true;
+      } else {
+        slot.reserved = false;
+      }
+    });
   }
 
   getDate(date:any): string | null {
