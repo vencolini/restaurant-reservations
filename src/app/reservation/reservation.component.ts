@@ -82,14 +82,15 @@ export class ReservationComponent implements OnInit, OnDestroy {
   checkForActiveReservation(): void{
     // load active reservation data from data service store
     this.activeReservation = this.dataService.getForm()
-
+    // if date and time are present in the form
     if (this.activeReservation.reservationDateTime 
           && this.activeReservation.reservationTime) {
 
+      // mark hour as selected
       this.resTime = this.activeReservation.reservationTime;
-
+      // populate the form filds using the form object from data service
       this.reservationForm.patchValue(this.activeReservation);
-      // convert from iso string date to date to show valid date in datepicker
+      // convert from ISO string date to date and show valid date in datepicker
       this.reservationForm.patchValue({
         reservationDateTime: new Date(this.activeReservation.reservationDateTime)
       });
@@ -248,6 +249,14 @@ export class ReservationComponent implements OnInit, OnDestroy {
     this.timeSlotsArray.forEach(slot => {
       if (reservedHours.includes(slot.value)) {
         slot.reserved = true;
+        // if selected hour === to a reserved hour delete the time from the form
+        // to prevent sending duplicate hours for reservations
+        if (this.reservationForm.value.reservationTime === slot.value) {
+          this.reservationForm.patchValue({
+            reservationTime: ""
+          });
+        }
+        //this.reservationForm.value.reservationTime = "";
       } else {
         slot.reserved = false;
       }
