@@ -16,7 +16,7 @@ To run the project in Docker container follow the instructions
 4. Run the following command to build the Docker image.
 `docker build -t kreservations .`
 5. Then run the following command to start the docker container.
-`docker run -p 4200:4200 -p 3000:3000 kreservations --rm kreservations`
+`docker run -p 4200:4200 -p 3000:3000 kreservations`
 
 
 ## Runing the application
