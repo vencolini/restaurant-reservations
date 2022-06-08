@@ -4,6 +4,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 To run the project in Docker container follow the instructions
 
+Hint - Since it's a restaurant reservations app, for the demo it was assumed that it should look good on mobile, because most of the people will grab their smartphone to make such reservation.
+
 ## Prerequisits
 
 1. Docker installed on your machine. You can download from [HERE](https://www.docker.com/products/docker-desktop/ "HERE")
